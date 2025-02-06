@@ -1,5 +1,5 @@
 # BackRoads
-This website was created as part of a Udemy course, where I explored working with components and lists in React. It showcases my understanding of building reusable UI elements and managing data efficiently.
+This website was created as part of a [Udemy course](https://www.udemy.com/course/react-tutorial-and-projects-course), where I explored working with components and lists in React. It showcases my understanding of building reusable UI elements and managing data efficiently.
 
 The project was built using **Vite**, **React**, and **JavaScript** for a fast and modern development experience.🚀
 
