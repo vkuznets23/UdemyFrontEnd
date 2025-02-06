@@ -1,5 +1,7 @@
 ## Amazon best sellers web page
 <img width="911" alt="image" src="https://github.com/user-attachments/assets/32356bed-4dc4-4251-be08-8872cb676752" />
+
+
 ### Vite setup
 ``` bash
 npm create vite@latest app-name -- --template react
