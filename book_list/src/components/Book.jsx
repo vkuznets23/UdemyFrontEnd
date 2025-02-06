@@ -1,30 +1,7 @@
 import '../styles/index.css'
+import {books} from '../books'
 
-const books = [
-    {
-        image: "https://m.media-amazon.com/images/I/91I1KDnK1kL._SY522_.jpg",
-        alt: "The Let Them Theory",
-        title: "The Let Them Theory: A Life-Changing Tool That Millions of People Can't Stop Talking About",
-        author: "mel robins",
-        id: 1,
-    },
-    {
-        image:"https://m.media-amazon.com/images/I/51sx4eLa6NL._SY445_SX342_.jpg",
-        alt:"The Housemaid",
-        title:"The Housemaid",
-        author:'Freida McFadden',
-        id: 2,
-    },
-    {
-        image:"https://m.media-amazon.com/images/I/419CqGgAdZL._SY445_SX342_.jpg",
-        alt:"Atomic Habits",
-        title:"Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
-        author:'James Clear',
-        id: 3,
-    }
-]
-
-const Book = ({image, alt, title, author}) => {
+const Book = ({image, alt, title, author, id, getBook, index}) => {
     const h4Style = {
         color: '#617d98',
         fontSize: '0.75rem',
@@ -36,17 +13,24 @@ const Book = ({image, alt, title, author}) => {
             <img src={image} alt={alt}/>
             <h2> {title} </h2>
             <h4 style={h4Style}> {author.charAt(0).toUpperCase() + author.slice(1)} </h4>
+            <button onClick={() => getBook(id)}>click</button>
+            <span className='number'>{index + 1}</span>
         </div>
     )
 };
 
 const BookList = () => {
+    const getBook = (id) => {
+        const book = books.find(book => book.id === id )
+        console.log(book.title)
+    }
+    
     return (
         <div className='booklist'>
             {/* option 1: */}
-            {books.map((book) => {
+            {books.map((book, index) => {
                 return (
-                    <Book {...book} key={book.id}/>
+                    <Book {...book} key={book.id} getBook={getBook} index={index}/>
                 )
             })
             // option 2:
