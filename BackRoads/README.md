@@ -1,8 +1,23 @@
-# React + Vite
+# BackRoads
+This website was created as part of a Udemy course, where I explored working with components and lists in React. It showcases my understanding of building reusable UI elements and managing data efficiently.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project was built using **Vite**, **React**, and **JavaScript** for a fast and modern development experience.🚀
 
-Currently, two official plugins are available:
+App deployed [here](https://elaborate-tartufo-5e2355.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Get started locally
+1. Git clone the repo
+``` bash
+git clone https://github.com/vkuznets23/UdemyFrontEnd.git
+cd UdemyFrontEnd/BackRoads
+```
+
+2. Install dependencies
+``` bash
+npm install
+```
+3. Start the project
+``` bash
+npm run dev
+```
+The app will be available at http://localhost:5173
