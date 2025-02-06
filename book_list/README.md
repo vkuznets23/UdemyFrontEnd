@@ -22,7 +22,7 @@ const Greeting = () => {
 };
 ```
 ###  JSX Rules
-   * return single element (one parent element <div>)
+   * return single element (one parent element <div> )
    * className instead of class
    * formatting (opening tag in the same line as return or `()` )
 ### Nest Components
