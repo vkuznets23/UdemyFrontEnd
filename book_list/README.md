@@ -42,7 +42,7 @@ const Message = () => {
 };
 ```
 ### How set CSS to objects
-** Option 1 Inline CSS **
+**Option 1 Inline CSS**
 ``` js
    const Author = () => (
   <h4 style={{ color: '#617d98', fontSize: '0.75rem', marginTop: '0.5rem' }}>
@@ -61,7 +61,7 @@ const Author = () => {
   return <h4 style={inlineHeadingStyles}>Jordan Moore </h4>;
 };
 ```
-** Option 2 Create id / class and add rules in CSS separate file **
+**Option 2 Create id / class and add rules in CSS separate file**
 ``` CSS
 .book h4 {
   /* won't work */
