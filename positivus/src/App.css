@@ -102,6 +102,11 @@ p {
   margin: 0;
 }
 
+span {
+  font-size: 18px;
+  margin-left: 30px;
+}
+
 .btn {
   width: 265px;
   height: 68px;
@@ -124,4 +129,98 @@ p {
 .companyLogos img {
   width: 100px;
   height: auto;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 40px; /* Spacing between cards */
+  max-width: 1240px; /* Limit width */
+}
+
+.serviceCard {
+  display: flex;
+  width: 600px;
+  height: 310px;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 50px;
+  border-radius: 50px;
+  gap: 20px; /* Space between text & image */
+  box-shadow: 0px 5px 0px rgba(25, 26, 35, 1);
+  border: 1px, solid #191a23;
+}
+
+.serviceCard div {
+  flex: 1; /* Take available space */
+}
+
+.imgService {
+  width: 210px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.cardBtn {
+  color: 0000;
+  background: none; /* Убирает фон */
+  border: none;
+  font-size: 20px;
+  text-align: left;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 550;
+  background-color: #b9ff66;
+  display: inline;
+}
+
+.serviceHeader {
+  align-items: center;
+  margin-bottom: 80px;
+  margin-top: 140px;
+  padding: 10px 20px;
+}
+
+.additionalText {
+  display: inline-block;
+  width: 580px;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: 500;
+  display: inline;
+  padding: 3px;
+  margin: 0;
+}
+
+.serviceCard:nth-child(3n + 1) {
+  background-color: #f3f3f3;
+}
+.serviceCard:nth-child(3n + 1) h3 {
+  background-color: #b9ff66;
+}
+.serviceCard:nth-child(3n + 2) {
+  background-color: #b9ff66;
+}
+.serviceCard:nth-child(3n + 2) h3 {
+  background-color: #f3f3f3;
+}
+
+.serviceCard:nth-child(3n + 3) {
+  background-color: #191a23;
+}
+.serviceCard:nth-child(3n + 3) h3 {
+  background-color: #f3f3f3;
+}
+.serviceCard:nth-child(3n + 3) button {
+  color: #f3f3f3;
+}
+
+.textBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 130px;
 }
