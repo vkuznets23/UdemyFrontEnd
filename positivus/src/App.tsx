@@ -1,7 +1,8 @@
 import './App.css'
-import Navbar from './Components/navbar'
-import Banner from './Components/Banner'
-import CompanyLogo from './Components/CompanyLogo'
+import Navbar from './components/navbar'
+import Banner from './components/Banner'
+import CompanyLogo from './components/CompanyLogo'
+import Services from './components/Services'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Navbar />
       <Banner />
       <CompanyLogo />
+      <Services />
     </>
   )
 }
