@@ -1,4 +1,4 @@
-import { data } from '../../data'
+import { data } from '../../../data'
 import { useState } from 'react'
 
 const UseStateArray = () => {
@@ -15,14 +15,11 @@ const UseStateArray = () => {
         return (
           <div key={person.id}>
             <h4>{person.name}</h4>
-            <button type="button" onClick={() => handleRemove(person.id)}>
-              remove
-            </button>
+            <button onClick={() => handleRemove(person.id)}>remove</button>
           </div>
         )
       })}
       <button
-        type="button"
         onClick={() => {
           setPeople([])
         }}
