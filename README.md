@@ -8,3 +8,4 @@ The Complete React, Next.js & TypeScript Projects Course 2025 is an in-depth, pr
 
 1. [01-b-day buddy](./fundamental_projects/01-birthday-buddy/)
 2. [02-tours](./fundamental_projects/02-tours/)
+3. [03-reviews](./fundamental_projects/03-reviews/)
