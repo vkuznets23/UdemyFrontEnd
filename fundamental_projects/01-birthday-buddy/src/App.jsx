@@ -1,4 +1,4 @@
-import Persons from '../components/Persons'
+import Persons from './components/Persons'
 import data from '../data'
 
 function App() {
