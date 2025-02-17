@@ -10,7 +10,8 @@
 // import ShortCircuitOverview from './lessons/conditionalRendering/shortCircuitoverview'
 // import ToggleChallenge from './lessons/conditionalRendering/toggleChalange'
 // import UserChallenge from './lessons/conditionalRendering/userChallange'
-import CleanupFunction from './lessons/useEffect/cleanupFunctions'
+// import CleanupFunction from './lessons/useEffect/cleanupFunctions'
+import List from './lessons/leverageJavascript/List'
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
       {/* <ShortCircuitOverview /> */}
       {/* <ToggleChallenge /> */}
       {/* <UserChallenge /> */}
-      <CleanupFunction />
+      {/* <CleanupFunction /> */}
+      <List />
     </>
   )
 }
