@@ -11,7 +11,10 @@
 // import ToggleChallenge from './lessons/conditionalRendering/toggleChalange'
 // import UserChallenge from './lessons/conditionalRendering/userChallange'
 // import CleanupFunction from './lessons/useEffect/cleanupFunctions'
-import List from './lessons/leverageJavascript/List'
+// import List from './lessons/leverageJavascript/List'
+// import ControlledInputs from './lessons/forms/controlled-unputs'
+// import UserChallenge from './lessons/forms/userChallenge'
+import MultipleInputs from './lessons/forms/multipleInputs'
 
 function App() {
   return (
@@ -29,7 +32,10 @@ function App() {
       {/* <ToggleChallenge /> */}
       {/* <UserChallenge /> */}
       {/* <CleanupFunction /> */}
-      <List />
+      {/* <List /> */}
+      {/* <ControlledInputs /> */}
+      {/* <UserChallenge /> */}
+      <MultipleInputs />
     </>
   )
 }
