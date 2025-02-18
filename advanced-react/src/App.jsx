@@ -14,7 +14,8 @@
 // import List from './lessons/leverageJavascript/List'
 // import ControlledInputs from './lessons/forms/controlled-unputs'
 // import UserChallenge from './lessons/forms/userChallenge'
-import MultipleInputs from './lessons/forms/multipleInputs'
+// import MultipleInputs from './lessons/forms/multipleInputs'
+import OtherInputs from './lessons/forms/otherInput'
 
 function App() {
   return (
@@ -35,7 +36,8 @@ function App() {
       {/* <List /> */}
       {/* <ControlledInputs /> */}
       {/* <UserChallenge /> */}
-      <MultipleInputs />
+      {/* <MultipleInputs /> */}
+      <OtherInputs />
     </>
   )
 }
