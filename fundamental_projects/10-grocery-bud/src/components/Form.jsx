@@ -7,7 +7,7 @@ const Form = ({ addItem }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if (!inputValue) {
+    if (!inputValue.trim() || inputValue.length > 100) {
       toast.error('please provide value')
       return
     }

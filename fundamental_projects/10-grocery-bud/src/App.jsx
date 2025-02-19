@@ -19,7 +19,7 @@ function App() {
     const newItem = {
       id: nanoid(),
       completed: false,
-      name: itemName,
+      name: itemName.trim(),
     }
     setItems([...items, newItem])
     toast.success('item added to the list')

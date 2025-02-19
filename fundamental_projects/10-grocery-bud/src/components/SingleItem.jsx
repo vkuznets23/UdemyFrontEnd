@@ -8,6 +8,9 @@ const SingleItem = ({ item, deleteItem, editItem }) => {
       />
       <p
         style={{
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
           textTransform: 'capitalize',
           textDecoration: item.completed && 'line-through',
         }}
