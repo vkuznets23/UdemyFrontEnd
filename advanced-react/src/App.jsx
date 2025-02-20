@@ -15,11 +15,12 @@
 // import ControlledInputs from './lessons/forms/controlled-unputs'
 // import UserChallenge from './lessons/forms/userChallenge'
 // import MultipleInputs from './lessons/forms/multipleInputs'
-import OtherInputs from './lessons/forms/otherInput'
+// import OtherInputs from './lessons/forms/otherInput'
+import UseRefBasics from './lessons/useRef/useRef'
 
 function App() {
   return (
-    <>
+    <div className="container">
       {/* <Counter />
       <UseStateArray />
       <UseStateObject />
@@ -37,8 +38,9 @@ function App() {
       {/* <ControlledInputs /> */}
       {/* <UserChallenge /> */}
       {/* <MultipleInputs /> */}
-      <OtherInputs />
-    </>
+      {/* <OtherInputs /> */}
+      <UseRefBasics />
+    </div>
   )
 }
 
