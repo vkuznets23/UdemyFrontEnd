@@ -16,7 +16,9 @@
 // import UserChallenge from './lessons/forms/userChallenge'
 // import MultipleInputs from './lessons/forms/multipleInputs'
 // import OtherInputs from './lessons/forms/otherInput'
-import UseRefBasics from './lessons/useRef/useRef'
+// import UseRefBasics from './lessons/useRef/useRef'
+// import ToggleExample from './lessons/customHooks/toggle'
+import FetchData from './lessons/customHooks/fetch-data'
 
 function App() {
   return (
@@ -39,7 +41,9 @@ function App() {
       {/* <UserChallenge /> */}
       {/* <MultipleInputs /> */}
       {/* <OtherInputs /> */}
-      <UseRefBasics />
+      {/* <UseRefBasics /> */}
+      {/* <ToggleExample /> */}
+      <FetchData />
     </div>
   )
 }
