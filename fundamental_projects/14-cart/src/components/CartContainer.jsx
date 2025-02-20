@@ -1,39 +1,11 @@
 import CartItem from './CartItem'
-import cartItems from '../data'
-import { useReducer } from 'react'
-import { reducer } from '../components/reducer'
-import {
-  CLEAR_CART,
-  DECREASE_AMOUNT,
-  INCREASE_AMOUNT,
-  REMOVE_ITEM,
-} from './actions'
-
-const defaultState = {
-  cartItems: cartItems,
-  total: cartItems.reduce((acc, curVal) => acc + Number(curVal.price), 0),
-}
+import { useGlobalContext } from '../context'
 
 const CartContainer = () => {
-  const [state, dispatch] = useReducer(reducer, defaultState)
+  const { cart, clearCart, totalCost } = useGlobalContext()
+  const cartArray = Array.from(cart.entries())
 
-  const handleRemove = (id) => {
-    dispatch({ type: REMOVE_ITEM, payload: { id } })
-  }
-
-  const handleClearCart = () => {
-    dispatch({ type: CLEAR_CART })
-  }
-
-  const handleIncrease = (id) => {
-    dispatch({ type: INCREASE_AMOUNT, payload: { id } })
-  }
-
-  const handleDecrease = (id) => {
-    dispatch({ type: DECREASE_AMOUNT, payload: { id } })
-  }
-
-  if (state.cartItems.length === 0) {
+  if (cartArray.length === 0) {
     return (
       <section className="cart">
         {/* cart header */}
@@ -52,16 +24,9 @@ const CartContainer = () => {
       </header>
       {/* cart items */}
       <div>
-        {state.cartItems.map((cartItem) => {
-          return (
-            <CartItem
-              key={cartItem.id}
-              {...cartItem}
-              handleRemove={handleRemove}
-              handleIncrease={handleIncrease}
-              handleDecrease={handleDecrease}
-            />
-          )
+        {cartArray.map((cartItem) => {
+          const [id, item] = cartItem
+          return <CartItem key={id} {...item} />
         })}
       </div>
       {/* cart footer */}
@@ -69,11 +34,10 @@ const CartContainer = () => {
         <hr />
         <div>
           <h5 className="cart-total">
-            total
-            <span>{`${state.total}$`}</span>
+            total <span>${totalCost.toFixed(2)}</span>
           </h5>
         </div>
-        <button className="btn btn-hipster" onClick={handleClearCart}>
+        <button className="btn btn-hipster" onClick={clearCart}>
           clear cart
         </button>
       </footer>
