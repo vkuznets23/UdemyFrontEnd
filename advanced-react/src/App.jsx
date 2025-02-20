@@ -18,7 +18,8 @@
 // import OtherInputs from './lessons/forms/otherInput'
 // import UseRefBasics from './lessons/useRef/useRef'
 // import ToggleExample from './lessons/customHooks/toggle'
-import FetchData from './lessons/customHooks/fetch-data'
+// import FetchData from './lessons/customHooks/fetch-data'
+import ReducerBasics from './lessons/useReducer/useReduces'
 
 function App() {
   return (
@@ -43,7 +44,8 @@ function App() {
       {/* <OtherInputs /> */}
       {/* <UseRefBasics /> */}
       {/* <ToggleExample /> */}
-      <FetchData />
+      {/* <FetchData /> */}
+      <ReducerBasics />
     </div>
   )
 }
