@@ -19,7 +19,8 @@
 // import UseRefBasics from './lessons/useRef/useRef'
 // import ToggleExample from './lessons/customHooks/toggle'
 // import FetchData from './lessons/customHooks/fetch-data'
-import ReducerBasics from './lessons/useReducer/useReduces'
+// import ReducerBasics from './lessons/useReducer/useReduces'
+import LowerStateChallenge from './lessons/performance/lower-state'
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
       {/* <UseRefBasics /> */}
       {/* <ToggleExample /> */}
       {/* <FetchData /> */}
-      <ReducerBasics />
+      {/* <ReducerBasics /> */}
+      <LowerStateChallenge />
     </div>
   )
 }
