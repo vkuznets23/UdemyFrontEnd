@@ -1,8 +1,17 @@
-# React + Vite
+# Bday buddy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A project that demonstrates the use of React's state management and component structure. It allows users to manage a list of birthday buddies with features like adding and removing people from the list. structure
 
-Currently, two official plugins are available:
+### How to run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+git clone https://github.com/vkuznets23/UdemyFrontEnd.git
+cd UdemyFrontEnd
+cd fundamental_projects/01-birthday-buddy
+```
+
+```bash
+npm install
+npm run dev
+npm run server
+```

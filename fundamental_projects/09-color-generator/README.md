@@ -1,8 +1,17 @@
-# React + Vite
+# Color generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Color generator based on the user input using `nanoid` to generate ids, `react-toastify` to show notifications and `values.js` for colors and shades. Deployed [here](https://colorpaletegenerator3000.netlify.app/)
 
-Currently, two official plugins are available:
+### How to run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+git clone https://github.com/vkuznets23/UdemyFrontEnd.git
+cd UdemyFrontEnd
+cd fundamental_projects/09-color-generator
+```
+
+```bash
+npm install
+npm run dev
+npm run server
+```

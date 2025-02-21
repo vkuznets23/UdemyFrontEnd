@@ -1,8 +1,17 @@
-# React + Vite
+# Tours
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app that displays a list of tours. The data is fetched from a remote API and rendered dynamically using React's state and mapping features. It includes features such as filtering and displaying detailed information about each tour.
 
-Currently, two official plugins are available:
+### How to run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+git clone https://github.com/vkuznets23/UdemyFrontEnd.git
+cd UdemyFrontEnd
+cd fundamental_projects/02-tours
+```
+
+```bash
+npm install
+npm run dev
+npm run server
+```

@@ -1,8 +1,17 @@
-# React + Vite
+# Menu
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple menu implementation that let filter objects based on the category
 
-Currently, two official plugins are available:
+### How to run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+git clone https://github.com/vkuznets23/UdemyFrontEnd.git
+cd UdemyFrontEnd
+cd fundamental_projects/05-menu
+```
+
+```bash
+npm install
+npm run dev
+npm run server
+```
