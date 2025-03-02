@@ -21,8 +21,8 @@
 // import FetchData from './lessons/customHooks/fetch-data'
 // import ReducerBasics from './lessons/useReducer/useReduces'
 // import LowerStateChallenge from './lessons/performance/lower-state'
-
-import LowerState from './lessons/performance/hooks'
+// import LowerState from './lessons/performance/hooks'
+import CheckBox from './lessons/forms/checkbox'
 
 function App() {
   return (
@@ -50,7 +50,8 @@ function App() {
       {/* <FetchData /> */}
       {/* <ReducerBasics /> */}
       {/* <LowerStateChallenge /> */}
-      <LowerState />
+      {/* <LowerState /> */}
+      <CheckBox />
     </div>
   )
 }
