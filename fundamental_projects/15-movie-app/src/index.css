@@ -1,0 +1,60 @@
+.movies {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 16px;
+  padding: 10px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Adjust height of the slider */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-slide {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  color: white;
+}
+
+.slider-content {
+  padding: 2rem;
+  display: flex;
+  align-items: end;
+}
+
+.slide-text {
+  text-align: left;
+  z-index: 1;
+  padding: 20px;
+}
+
+h4 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  align-items: end;
+  padding: 2rem;
+}
