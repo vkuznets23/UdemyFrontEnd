@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from 'react'
 import { Slider, Loader, MyList, Movies } from './components'
 import axios from 'axios'
 import useLocalStorage from './useLocalStorage'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const API_KEY = import.meta.env.VITE_API_KEY
 const urls = {
@@ -45,16 +47,19 @@ function App() {
   const addToMyList = (movie) => {
     if (!myList.some((m) => m.id === movie.id)) {
       setMyList((prev) => [...prev, movie])
+      toast.success('Added film to wanna watch')
     }
   }
 
   const handleDelete = (id) => {
     removeItem(id)
+    toast.success('Movie deleted from wanna watch')
   }
 
   if (isLoading) return <Loader />
   return (
     <>
+      <ToastContainer />
       <Slider randomMovies={randomMovies} />
       <Movies
         movies={popularMovies}

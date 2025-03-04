@@ -1,5 +1,5 @@
-import { BsBookmarkPlusFill } from 'react-icons/bs'
 import { AiFillStar } from 'react-icons/ai'
+import { AddToList } from '../components'
 
 const Movie = ({ movie, posterUrl, addToMyList }) => {
   const { title, id, vote_average, poster_path, release_date } = movie
@@ -13,14 +13,14 @@ const Movie = ({ movie, posterUrl, addToMyList }) => {
         </div>
         <h3>{title}</h3>
       </div>
-      <button
-        className="add-list-btn"
-        onClick={() =>
-          addToMyList({ id, title, poster_path, vote_average, release_date })
-        }
-      >
-        <BsBookmarkPlusFill />
-      </button>
+      <AddToList
+        addToMyList={addToMyList}
+        title={title}
+        id={id}
+        poster_path={poster_path}
+        vote_average={vote_average}
+        release_date={release_date}
+      />
     </div>
   )
 }

@@ -23,8 +23,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-.slider-container:hover {
-}
 
 .slider-slide {
   width: 100%;
@@ -44,9 +42,11 @@ body {
 .header {
   display: inline-flex;
   align-items: center;
+  margin-top: 2%;
 }
 .header:hover .header-icon {
   color: #f6c700;
+  cursor: pointer;
 }
 
 .slider-content {
@@ -57,8 +57,7 @@ body {
 
 .slide-text {
   text-align: left;
-  z-index: 1;
-  padding: 20px;
+  width: 100%;
 }
 h2 {
   font-size: 1.4rem;
@@ -92,16 +91,18 @@ p {
   background: transparent;
   opacity: 60%;
   position: absolute;
-  top: 5px;
+  top: 1%;
   left: 0px;
   border: none;
-  padding: 0;
+  padding: 0.5%;
   font-size: 50px;
   color: white;
+  cursor: pointer;
 }
 
 .add-list-btn:hover {
-  opacity: 30%;
+  color: #f6c700;
+  opacity: 100%;
 }
 
 .carousel-container {
@@ -137,4 +138,14 @@ p {
 
 .card-content {
   padding: 0rem;
+}
+
+.movie-card-play {
+  display: flex;
+  align-items: end;
+  gap: 2%;
+}
+
+.img-container {
+  position: relative;
 }
