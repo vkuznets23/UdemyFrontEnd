@@ -1,26 +1,16 @@
 import { useCallback, useEffect, useState } from 'react'
+import { Slider, Loader, MyList, Movies } from './components'
 import axios from 'axios'
-import Movies from './components/Movies'
-// import Filter from './components/Filter'
-import { questions } from './data'
-import Questions from './components/Questions'
-import Slider from './components/Slider'
-import Loader from './components/Loader'
+import useLocalStorage from './useLocalStorage'
 
 const API_KEY = import.meta.env.VITE_API_KEY
-const trendingURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
-const upcomingURL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&region=FI`
-const urls = { trending: trendingURL, upcoming: upcomingURL }
+const urls = {
+  trending: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`,
+  upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&region=FI`,
+}
 
 const shuffleArray = (array) => {
-  let shuffled = [...array] // Make a copy of the array
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    const temp = shuffled[i]
-    shuffled[i] = shuffled[j]
-    shuffled[j] = temp
-  }
-  return shuffled
+  return array.sort(() => Math.random() - 0.5)
 }
 
 function App() {
@@ -28,8 +18,7 @@ function App() {
   const [upcomingMovies, setUpcomingMovies] = useState([])
   const [randomMovies, setRandomMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  // const [filter, setFilter] = useState('')
-  const [myList, setMyList] = useState([])
+  const [myList, setMyList, removeItem] = useLocalStorage('myList', [])
 
   const fetchData = useCallback(async () => {
     try {
@@ -53,24 +42,20 @@ function App() {
     fetchData()
   }, [fetchData])
 
-  // const filteredMovies = popularMovies.filter((movie) =>
-  //   movie.title.toLowerCase().includes(filter.toLowerCase())
-  // )
-
   const addToMyList = (movie) => {
-    if (!myList.some((m) => m.title === movie.title)) {
+    if (!myList.some((m) => m.id === movie.id)) {
       setMyList((prev) => [...prev, movie])
     }
   }
-  useEffect(() => {
-    console.log('Updated myList:', myList)
-  }, [myList])
+
+  const handleDelete = (id) => {
+    removeItem(id)
+  }
 
   if (isLoading) return <Loader />
   return (
     <>
       <Slider randomMovies={randomMovies} />
-      {/* <Filter filter={filter} setFilter={setFilter} /> */}
       <Movies
         movies={popularMovies}
         addToMyList={addToMyList}
@@ -81,15 +66,7 @@ function App() {
         addToMyList={addToMyList}
         title="Upcoming movies"
       />
-      <Questions questions={questions} />
-      {myList.length > 0 ? (
-        <Movies movies={myList} title="My list" />
-      ) : (
-        <div>
-          <h1>My list</h1>
-          <p>my list is empty</p>
-        </div>
-      )}
+      <MyList myList={myList} handleDelete={handleDelete} />
     </>
   )
 }

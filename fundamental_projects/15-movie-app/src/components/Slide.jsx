@@ -1,10 +1,4 @@
-const Slide = ({
-  title,
-  backdrop_path,
-  handleNext,
-  handlePrev,
-  poster_path,
-}) => {
+const Slide = ({ title, backdrop_path, poster_path }) => {
   const imagePath = `https://image.tmdb.org/t/p/original${poster_path}`
   const backdropImagePath = `https://image.tmdb.org/t/p/original${backdrop_path}`
   return (
@@ -12,7 +6,8 @@ const Slide = ({
       <div
         className="slider-slide"
         style={{
-          backgroundImage: `url(${backdropImagePath})`,
+          backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 60%), url(${backdropImagePath})`,
+          loading: 'lazy',
         }}
       >
         <div className="slider-content">
@@ -21,10 +16,6 @@ const Slide = ({
             <h4>{title}</h4>
             <p>Watch the new {title} Trailer</p>
           </div>
-        </div>
-        <div className="buttons">
-          <button onClick={handlePrev}>prev</button>
-          <button onClick={handleNext}>next</button>
         </div>
       </div>
     </div>

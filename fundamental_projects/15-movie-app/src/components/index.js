@@ -1,0 +1,7 @@
+export { default as Movies } from './Movies'
+export { default as Header } from './Header'
+export { default as Loader } from './Loader'
+export { default as Movie } from './Movie'
+export { default as MyList } from './MyList'
+export { default as Slide } from './Slide'
+export { default as Slider } from './Slider'
