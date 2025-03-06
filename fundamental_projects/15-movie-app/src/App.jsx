@@ -20,7 +20,14 @@ function App() {
   const [randomMovies, setRandomMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
-  const allMovies = popularMovies.concat(upcomingMovies)
+  const allMovies = [...popularMovies, ...upcomingMovies]
+
+  const uniqueMovies = allMovies.reduce((acc, movie) => {
+    if (!acc.find((m) => m.id === movie.id)) {
+      acc.push(movie)
+    }
+    return acc
+  }, [])
 
   const fetchData = useCallback(async () => {
     try {
@@ -48,7 +55,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <Filter allMovies={allMovies} />
+      <Filter allMovies={uniqueMovies} />
       <Slider randomMovies={randomMovies} />
       <Movies movies={popularMovies} title="What's popular" />
       <Movies movies={upcomingMovies} title="Upcoming movies" />
