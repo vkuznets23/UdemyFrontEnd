@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Slider, Loader, MyList, Movies } from './components'
+import { Slider, Loader, MyList, Movies, Filter } from './components'
 import axios from 'axios'
-import useLocalStorage from './useLocalStorage'
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const API_KEY = import.meta.env.VITE_API_KEY
@@ -20,7 +19,8 @@ function App() {
   const [upcomingMovies, setUpcomingMovies] = useState([])
   const [randomMovies, setRandomMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const [myList, setMyList, removeItem] = useLocalStorage('myList', [])
+
+  const allMovies = popularMovies.concat(upcomingMovies)
 
   const fetchData = useCallback(async () => {
     try {
@@ -44,34 +44,15 @@ function App() {
     fetchData()
   }, [fetchData])
 
-  const addToMyList = (movie) => {
-    if (!myList.some((m) => m.id === movie.id)) {
-      setMyList((prev) => [...prev, movie])
-      toast.success('Added film to wanna watch')
-    }
-  }
-
-  const handleDelete = (id) => {
-    removeItem(id)
-    toast.success('Movie deleted from wanna watch')
-  }
-
   if (isLoading) return <Loader />
   return (
     <>
       <ToastContainer />
+      <Filter allMovies={allMovies} />
       <Slider randomMovies={randomMovies} />
-      <Movies
-        movies={popularMovies}
-        addToMyList={addToMyList}
-        title="What's popular"
-      />
-      <Movies
-        movies={upcomingMovies}
-        addToMyList={addToMyList}
-        title="Upcoming movies"
-      />
-      <MyList myList={myList} handleDelete={handleDelete} />
+      <Movies movies={popularMovies} title="What's popular" />
+      <Movies movies={upcomingMovies} title="Upcoming movies" />
+      <MyList />
     </>
   )
 }
