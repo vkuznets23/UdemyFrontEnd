@@ -1,10 +1,11 @@
-import { useState } from 'react'
-
 const SearchForm = () => {
-  const [search, setSearch] = useState('')
   const handleSubmit = (e) => {
     e.preventDefault()
+    const searchValue = e.target.elements.search.value
+    if (!searchValue) return
+    console.log(searchValue)
   }
+
   return (
     <section>
       <h1 className="title">unsplash images</h1>
@@ -12,9 +13,7 @@ const SearchForm = () => {
         <input
           className="form-input search-input"
           name="search"
-          value={search}
           placeholder="cat"
-          onChange={(e) => setSearch(e.target.value)}
         />
         <button type="submit" className="btn">
           search
