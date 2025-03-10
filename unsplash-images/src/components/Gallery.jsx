@@ -1,32 +1,30 @@
 import { useQuery } from '@tanstack/react-query'
 import { getData } from '../axios'
 import { useGlobalContext } from '../context'
+import Loader from './Loading'
 
 const Gallery = () => {
   const { searchTerm } = useGlobalContext()
   const { data, isLoading, error } = useQuery({
     queryKey: ['photos', searchTerm],
     queryFn: async () => {
-      const { data } = await getData.get(`search/photos?query=${searchTerm}`)
+      const { data } = await getData.get(
+        `search/photos?per_page=15&order_by=popular&query=${searchTerm}`
+      )
       return data
     },
   })
-  if (isLoading)
-    return (
-      <section className="image-container">
-        <h4>Loading...</h4>
-      </section>
-    )
+  if (isLoading) return <Loader />
   if (error)
     return (
       <section className="image-container">
-        <h4>Something went wrong: {error.message}</h4>
+        <p>Something went wrong: {error.message}</p>
       </section>
     )
   if (data.results < 1)
     return (
       <section className="image-container">
-        <h4>can't find any results...</h4>
+        <p>Can't find any results...</p>
       </section>
     )
   return (
@@ -36,7 +34,7 @@ const Gallery = () => {
           className="img"
           key={photo.id}
           src={photo?.urls?.regular}
-          alt={photo.alt_description}
+          alt={photo.alt_description || 'Unsplash Image'}
         />
       ))}
     </section>
