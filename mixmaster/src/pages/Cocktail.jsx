@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const baseURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const loader = async ({ params }) => {
   const { id } = params
   const { data } = await axios.get(`${baseURL}${id}`)
@@ -11,7 +12,8 @@ export const loader = async ({ params }) => {
 }
 
 const Cocktail = () => {
-  const { id, data } = useLoaderData()
+  // const { id, data } = useLoaderData()
+  const { data } = useLoaderData()
   const {
     strDrink: name,
     strDrinkThumb: img,
