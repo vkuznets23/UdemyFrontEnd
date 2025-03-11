@@ -1,19 +1,25 @@
-import { useLoaderData, Link } from 'react-router-dom'
+import { useLoaderData, Link, Navigate } from 'react-router-dom'
 import axios from 'axios'
 import styled from 'styled-components'
 
-const baseURL = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
+const singleCocktailURL =
+  'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const loader = async ({ params }) => {
   const { id } = params
-  const { data } = await axios.get(`${baseURL}${id}`)
+  const { data } = await axios.get(`${singleCocktailURL}${id}`)
   return { id, data }
 }
 
 const Cocktail = () => {
   // const { id, data } = useLoaderData()
   const { data } = useLoaderData()
+
+  // if (!data) return <h3>Something went wrong...</h3>
+  if (!data) return <Navigate to="/" />
+
+  const singleDrink = data.drinks[0]
   const {
     strDrink: name,
     strDrinkThumb: img,
@@ -21,13 +27,21 @@ const Cocktail = () => {
     strCategory: category,
     strGlass: glass,
     strInstructions: instructions,
-  } = data.drinks[0]
+  } = singleDrink
+
+  const validIngredients = Object.keys(singleDrink)
+    .filter(
+      (key) => key.startsWith('strIngredient') && singleDrink[key] !== null
+    )
+    .map((key) => singleDrink[key])
+
   return (
     <Wrapper>
       <header>
         <Link to="/" className="btn">
           Home
         </Link>
+        <h3>{name}</h3>
       </header>
       <div className="drink">
         <img src={img} atl={name} className="img" />
@@ -48,7 +62,17 @@ const Cocktail = () => {
             <span className="drink-data">glass :</span>
             {glass}
           </p>
-
+          <p>
+            <span className="drink-data">ingredients :</span>
+            {validIngredients.map((ingredient, index) => {
+              return (
+                <span className="ing" key={ingredient}>
+                  {ingredient}
+                  {index < validIngredients.length - 1 ? ',' : ''}
+                </span>
+              )
+            })}
+          </p>
           <p>
             <span className="drink-data">instructions :</span>
             {instructions}

@@ -5,6 +5,7 @@ import axios from 'axios'
 
 const baseURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=`
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const loader = async () => {
   const searchTerm = 'margarita'
   const resp = await axios.get(`${baseURL}${searchTerm}`)
