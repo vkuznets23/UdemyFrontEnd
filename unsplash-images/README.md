@@ -1,12 +1,50 @@
-# React + Vite
+# Unsplash clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Unsplash Clone** built using **React**, **React Query**. This project allows users to search and explore a collection of high-quality images using the **Unsplash API**.
 
-Currently, two official plugins are available:
+[Deployed]()
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔍 **Image Search:** Search for stunning images by keywords using the Unsplash API.
+- 📷 **Infinite Scrolling:** Seamless infinite scrolling for smooth, uninterrupted browsing, loading more images as you scroll.
+- ⚡ **Optimized Data Fetching:** Using React Query for efficient data fetching, caching, background updates, and faster page loads.
+- 💻 **Responsive Design:** Fully responsive layout for mobile, tablet, and desktop devices, ensuring a great experience across all screen sizes.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- **React** – Frontend UI framework.
+- **React Query** - Efficient data fetching and caching.
+- **Unsplash API** – Source of high-quality images.
+- **Axios** – For making API requests.
+- **CSS** – Responsive styling.
+
+## 🔧 Getting Started
+
+1. Clone the repository:
+
+```
+git clone https://github.com/vkuznets23/
+```
+
+2. Navigate to the project folder:
+
+```
+cd unsplash-clone
+```
+
+3. Install the dependencies:
+
+```
+npm install
+```
+
+4. start server at http://localhost:5173/
+
+```
+npm run dev
+```
+
+## 🌍 Live Demo
+
+You can explore the live version of the app [here]()

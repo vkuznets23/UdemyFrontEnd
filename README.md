@@ -8,6 +8,8 @@ The Complete React, Next.js & TypeScript Projects Course 2025 is an in-depth, pr
 
 This repository contains several React projects showcasing different functionalities and skills. Each project focuses on a unique aspect of React, from state management and fetching data from external APIs to using different libraries and frameworks.
 
+### Fundamental projects
+
 | title                                                            | description                                                                                                                                                                                                                                                     | deployment                                            |
 | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | [BackRoads](./BackRoads/)                                        | Landing page                                                                                                                                                                                                                                                    | [here](https://elaborate-tartufo-5e2355.netlify.app/) |
@@ -25,3 +27,27 @@ This repository contains several React projects showcasing different functionali
 | [12-sidebar](./fundamental_projects/12-sidebar/)                 | sidebar implementation                                                                                                                                                                                                                                          |                                                       |
 | [13-strapi](./fundamental_projects/13-strapi/)                   | navbar implementation with side menu and subment for navigation. I used here `nanoid` library to generate ids and `useRef` to implement nice hovering                                                                                                           |
 | [14-cart](./fundamental_projects/14-cart/)                       | Cart prices calculator                                                                                                                                                                                                                                          |                                                       |
+
+## Unsplash clone
+
+A modern **Unsplash Clone** built using **React**, **React Query**. This project allows users to search and explore a collection of high-quality images using the **Unsplash API**.
+
+- Deployed
+- Project overview [here](./unsplash-images/)
+
+### 🚀 Features
+
+- 🔍 **Image Search** – Search for stunning images using keywords.
+- 📷 **Infinite Scrolling** – Seamless infinite scroll for a smooth browsing experience.
+- ⚡ **Optimized Data Fetching** – Using React Query for caching, background updates, and faster page loads.
+- 💻 **Responsive Design** – Fully responsive layout for mobile and desktop devices.
+
+### 🛠️ Technologies Used
+
+- **React** – Frontend UI framework.
+- **React Query** - Efficient data fetching and caching.
+- **Unsplash API** – Source of high-quality images.
+- **Axios** – For making API requests.
+- **CSS** – Responsive styling.
+
+## Mixmaster – cocktail website
