@@ -10,6 +10,7 @@ A modern **Unsplash Clone** built using **React**, **React Query**. This project
 - 📷 **Infinite Scrolling:** Seamless infinite scrolling for smooth, uninterrupted browsing, loading more images as you scroll.
 - ⚡ **Optimized Data Fetching:** Using React Query for efficient data fetching, caching, background updates, and faster page loads.
 - 💻 **Responsive Design:** Fully responsive layout for mobile, tablet, and desktop devices, ensuring a great experience across all screen sizes.
+- ☀️ **Dark mode**
 
 ## 🛠️ Technologies Used
 

@@ -1,10 +1,5 @@
-import { useCallback, useEffect, useState } from 'react'
-import { Slider, Loader, MyList, Movies, Filter } from './components'
+import { useEffect, useState, useCallback } from 'react'
 import axios from 'axios'
-import 'react-toastify/dist/ReactToastify.css'
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import SingleMovie from './pages/singleMovie'
 
 const API_KEY = import.meta.env.VITE_API_KEY
 const urls = {
@@ -16,20 +11,11 @@ const shuffleArray = (array) => {
   return array.sort(() => Math.random() - 0.5)
 }
 
-const HomeLayout = () => {
+const MainPage = () => {
   const [popularMovies, setPopularMovies] = useState([])
   const [upcomingMovies, setUpcomingMovies] = useState([])
   const [randomMovies, setRandomMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-
-  const allMovies = [...popularMovies, ...upcomingMovies]
-
-  const uniqueMovies = allMovies.reduce((acc, movie) => {
-    if (!acc.find((m) => m.id === movie.id)) {
-      acc.push(movie)
-    }
-    return acc
-  }, [])
 
   const fetchData = useCallback(async () => {
     try {
@@ -55,32 +41,13 @@ const HomeLayout = () => {
 
   if (isLoading) return <Loader />
   return (
-    <>
-      <Filter allMovies={uniqueMovies} />
+    <div>
       <Slider randomMovies={randomMovies} />
       <Movies movies={popularMovies} title="What's popular" />
       <Movies movies={upcomingMovies} title="Upcoming movies" />
       <MyList />
-    </>
+    </div>
   )
 }
 
-import { loader as singleMovieLoader } from './pages/singleMovie'
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <HomeLayout />,
-  },
-  {
-    path: '/movie/:id',
-    loader: singleMovieLoader,
-    element: <SingleMovie />,
-  },
-])
-
-function App() {
-  return <RouterProvider router={router} />
-}
-
-export default App
+export default MainPage

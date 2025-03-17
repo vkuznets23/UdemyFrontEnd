@@ -1,7 +1,7 @@
 import { useContext, createContext } from 'react'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import useLocalStorage from './useLocalStorage'
+import useLocalStorage from './hooks/useLocalStorage'
 
 const AppContext = createContext()
 
