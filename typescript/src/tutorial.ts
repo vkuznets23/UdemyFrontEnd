@@ -158,3 +158,67 @@ function processInput(input: string | number) {
 
 processInput(23)
 processInput('hello')
+
+// ------------ OBJECTS AS PARAMS ------------
+function createEmployee({ id }: { id: number }): {
+  id: number
+  isActive: boolean
+} {
+  return { id, isActive: id % 2 === 0 }
+}
+
+console.log(createEmployee({ id: 12 }))
+console.log(createEmployee({ id: 13 }))
+
+// alternative
+function createStudent(student: { id: number; name: string }) {
+  console.log(`Welcome to the course ${student.name.toUpperCase()}!!!`)
+}
+
+const newStudent = {
+  id: 5,
+  name: 'anna',
+  // email: 'gmail',
+}
+
+createStudent(newStudent)
+// createStudent({ id: 1, name: 'sarha', email: 'gmail' })
+
+function processData(
+  input: string | number,
+  config: { reverse: boolean } = { reverse: false }
+) {
+  if (typeof input === 'number') {
+    return input * input
+  } else {
+    return config.reverse
+      ? input.toUpperCase().split('').reverse().join('')
+      : input.toUpperCase()
+  }
+}
+
+console.log(processData('hello', { reverse: true }))
+console.log(processData('hello'))
+console.log(processData(3, { reverse: true }))
+console.log(processData(3))
+
+// ------------ ALIAS ------------
+type User = { id: number; name: string; isActive: boolean }
+
+const john: User = {
+  id: 1,
+  name: 'john',
+  isActive: true,
+}
+const susan: User = {
+  id: 1,
+  name: 'susan',
+  isActive: false,
+}
+
+function createUser(user: User): User {
+  console.log(`Hello there ${user.name.toUpperCase()} !!!`)
+  return user
+}
+
+createUser(john)
