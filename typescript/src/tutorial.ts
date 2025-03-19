@@ -38,6 +38,7 @@ console.log(findBook, findBook?.length)
 let orderStatus: 'processing' | 'shipped' | 'delivered' = 'processing'
 orderStatus = 'shipped'
 orderStatus = 'delivered'
+console.log(orderStatus)
 
 let discount: number | string = 20
 discount = '20%'
@@ -51,28 +52,33 @@ let fruit: string[] = ['apple', 'orange']
 fruit.push('blablas')
 
 let temperatures: number[] = [20, 25, 30, 35]
-// temperatures.push('hot')
+temperatures.push(40)
 
 // ------------ OBJECTS ------------
 
-let car: { brand: string; year: number } = { brand: 'toyota', year: 1999 }
+// let car: { brand: string; year: number } = { brand: 'toyota', year: 1999 }
 
 let book = { title: 'book', cost: 200 }
 let pen = { title: 'pen', cost: 300 }
 let notebook = { title: 'notebook' }
 
 let items: { readonly title: string; cost?: number }[] = [book, pen, notebook]
+console.log(items)
+
 // items[0].title = 'hello'
 
 let bike: { brand: string; year: number } = { brand: 'toyota', year: 1999 }
+console.log(bike.brand)
 // bike.year = "string"
 
 let laptop: { brand: string; year: number } = { brand: 'apple', year: 1989 }
+console.log(laptop.brand)
 // let laptop2: { brand: string; year: number } = { brand: 'HP' }
 
 let product1 = { title: 'Shirt', price: 20 }
 let product2 = { title: 'Skirt' }
 let products: { title: string; price?: number }[] = [product1, product2]
+console.log(products)
 
 // ------------ FUNCTIONS ------------
 
