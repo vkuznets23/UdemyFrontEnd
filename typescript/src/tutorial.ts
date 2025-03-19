@@ -42,6 +42,7 @@ console.log(orderStatus)
 
 let discount: number | string = 20
 discount = '20%'
+console.log(discount)
 
 // ------------ ARRAYS ------------
 
@@ -82,7 +83,7 @@ console.log(products)
 
 // ------------ FUNCTIONS ------------
 
-function sayHi(name: string) {
+function sayHi(name: string): void {
   console.log(`Here is the name ${name.toUpperCase()}`)
 }
 
@@ -112,3 +113,48 @@ function ifNameInArray(name: string): boolean {
 
 console.log(ifNameInArray('vika'))
 console.log(ifNameInArray('vika2'))
+
+// ------------ OPTIONAL PARAMS ------------
+function calculatePrice(price: number, discount?: number): number {
+  return price - (discount || 0)
+}
+
+console.log(calculatePrice(10, 5))
+
+// ------------ DEFAULT PARAMS ------------
+function calculateScore(
+  initialScore: number,
+  penaltyPoints: number = 0
+): number {
+  return initialScore - penaltyPoints
+}
+
+console.log(calculateScore(100, 20))
+console.log(calculateScore(100))
+
+// ------------ REST PARAMS ------------
+function sum(message: string, ...nums: number[]): string {
+  const doubled = nums.map((num) => {
+    num * 2
+  })
+  console.log(doubled)
+
+  let total = nums.reduce((prev, cur) => {
+    return prev + cur
+  }, 0)
+
+  return `${message} ${total}`
+}
+
+console.log(sum('The total is ', 1, 2, 3, 4, 5))
+
+function processInput(input: string | number) {
+  if (typeof input === 'number') {
+    console.log(input * 2)
+  } else {
+    console.log(input.toUpperCase())
+  }
+}
+
+processInput(23)
+processInput('hello')
