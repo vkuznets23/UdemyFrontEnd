@@ -222,3 +222,66 @@ function createUser(user: User): User {
 }
 
 createUser(john)
+createUser(susan)
+
+type StringOrNumber = string | number
+let value: StringOrNumber
+value = 'hello'
+
+type Employee = { id: number; name: string; department: string }
+type Manager = { id: number; name: string; employees: Employee[] }
+type Staff = Employee | Manager
+
+function printStaffDetails(t: Staff): void {
+  if ('employees' in t) {
+    const len = t.employees.length
+    console.log(`manager that has ${len} employees`)
+  } else {
+    console.log(`employee, his department us ${t.department}`)
+  }
+}
+
+const jere: Employee = {
+  id: 2,
+  name: 'jere',
+  department: 'delivery',
+}
+
+const helen: Employee = {
+  id: 3,
+  name: 'helen2',
+  department: 'support team',
+}
+
+const vika: Manager = {
+  id: 1,
+  name: 'vika',
+  employees: [jere, helen],
+}
+
+printStaffDetails(vika)
+printStaffDetails(jere)
+
+// ------------ INTERSECTION TYPE ------------
+
+type Book = { id: number; name: string; price: number }
+type discountedBooks = Book & { discount: number }
+
+const book1: Book = {
+  id: 2,
+  name: 'How to Cook a Dragon',
+  price: 15,
+}
+
+const book2: Book = {
+  id: 3,
+  name: 'The Secret Life of Unicorns',
+  price: 18,
+}
+
+const discountedBook: discountedBooks = {
+  id: 4,
+  name: 'Gnomes vs. Goblins: The Ultimate Guide',
+  price: 25,
+  discount: 0.15,
+}
