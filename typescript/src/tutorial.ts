@@ -359,3 +359,45 @@ const laptop3: computer = {
 }
 
 console.log(laptop3.upgradeRam(20))
+
+// ------ MERGING -----
+interface Person {
+  name: string
+  getDetails(): string
+}
+
+interface DogOwner {
+  dogName: string
+  getDogDetails(): string
+}
+
+// basically i can add properties to the interface => now we have more data in the Person
+interface Person {
+  age: number
+}
+
+const jhon: Person = {
+  name: 'jhon',
+  age: 30,
+  getDetails() {
+    return `name: ${this.name} Age: ${this.age}`
+  },
+}
+console.log(jhon.getDetails())
+
+interface Employee2 extends Person {
+  employeeId: number
+}
+
+// interface Employee2 extends Person, DogOwner {}
+
+const jane: Employee2 = {
+  employeeId: 1,
+  name: 'jane',
+  age: 25,
+  getDetails() {
+    return `name: ${this.name} Age: ${this.age} EmployeeId: ${this.employeeId}`
+  },
+}
+
+console.log(jane.getDetails())
