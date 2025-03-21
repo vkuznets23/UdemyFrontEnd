@@ -227,6 +227,7 @@ createUser(susan)
 type StringOrNumber = string | number
 let value: StringOrNumber
 value = 'hello'
+console.log(value)
 
 type Employee = { id: number; name: string; department: string }
 type Manager = { id: number; name: string; employees: Employee[] }
@@ -285,3 +286,76 @@ const discountedBook: discountedBooks = {
   price: 25,
   discount: 0.15,
 }
+console.log(book1, book2, discountedBook)
+
+// ------------ INTERFACES ------------
+//like aliaces but only for objects
+
+interface Book2 {
+  readonly isbn: number
+  title: string
+  author: string
+  genre?: string
+  printAuthor(): void
+  printTitle(message: string): string
+  printSomething: (someValue: number) => number
+}
+
+const deepWork: Book2 = {
+  isbn: 123,
+  title: 'deep book',
+  author: 'jhony deep',
+  genre: 'self-help',
+  printAuthor() {
+    console.log(this.author)
+  },
+  printTitle(message) {
+    return `${this.title} ${message}`
+  },
+
+  //1st option
+  // printSomething: function (someValue) {
+  //   return someValue
+  // },
+
+  //2nd option
+  // printSomething: (someValue) => {
+  //   console.log(this)
+  //   console.log(deepWork.author)
+
+  //   return someValue
+  // },
+
+  //3d option
+  printSomething(someValue) {
+    return someValue
+  },
+}
+
+deepWork.title = 'new title'
+deepWork.printAuthor()
+
+const result = deepWork.printTitle('bla bla')
+console.log(result)
+
+console.log(deepWork.printSomething(34))
+
+interface computer {
+  readonly id: number
+  brand: string
+  ram: number
+  storage?: number
+  upgradeRam(ram: number): number
+}
+
+const laptop3: computer = {
+  id: 1,
+  brand: 'apple',
+  ram: 2024,
+  upgradeRam(ram) {
+    this.ram += ram
+    return this.ram
+  },
+}
+
+console.log(laptop3.upgradeRam(20))
