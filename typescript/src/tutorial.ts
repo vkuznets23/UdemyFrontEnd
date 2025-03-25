@@ -401,3 +401,291 @@ const jane: Employee2 = {
 }
 
 console.log(jane.getDetails())
+
+interface Person2 {
+  name: string
+}
+
+interface DogOwner extends Person {
+  dogName: string
+}
+
+interface Manager2 extends Person {
+  managePeople(): void
+  delegateTasks(): void
+}
+
+const employee: Person2 | DogOwner | Manager2 = getEmployee()
+console.log(employee)
+
+function getEmployee(): Person2 | DogOwner | Manager2 {
+  const num = Math.random()
+  if (num < 0.33) {
+    return { name: 'jhon' }
+  } else if (num < 0.66) {
+    return { name: 'sarah', dogName: 'Pepe' }
+  } else {
+    return {
+      name: 'Jepe',
+      managePeople: () => console.log('Managing people...'),
+      delegateTasks: () => console.log('Delegating tasks...'),
+    }
+  }
+}
+
+// function isManager(obj: Person2 | DogOwner | Manager2): boolean {
+function isManager(obj: Person2 | DogOwner | Manager2): obj is Manager2 {
+  return 'managePeople' in obj
+}
+
+console.log(isManager(employee))
+if (isManager(employee)) {
+  employee.delegateTasks()
+}
+
+// TUPLES AND ENUMS
+let person: [string, number] = ['jhon', 24]
+console.log(person)
+
+let date: readonly [number, number, number] = [2011, 23, 14]
+// date.push(34)
+// date.push(34)
+// date.push(34)
+console.log(date)
+
+function getPerson(): [string, number] {
+  return ['vika', 25]
+}
+
+let randonPerson = getPerson()
+console.log(randonPerson)
+console.log(randonPerson[0])
+console.log(randonPerson[1])
+
+let susanTuple: [string, number?] = ['susan']
+console.log(susanTuple)
+
+enum UserRole {
+  Admin = 'Admin',
+  Manager = 'Manager',
+  Employee = 'Employee',
+}
+
+type User3 = {
+  readonly id: number
+  name: string
+  role: UserRole
+  contact: [string, string]
+}
+
+function CreateUser(user: User3): User3 {
+  return user
+}
+
+const user: User3 = CreateUser({
+  id: 1,
+  name: 'vika',
+  role: UserRole.Admin,
+  contact: ['vik@email', '895645'],
+})
+
+console.log(user)
+
+// TYPE ASSERTION
+let someSomeValue: any = 'this is string'
+
+let strLength: number = (someSomeValue as string).length
+console.log(strLength)
+
+let birdString = '{ "name": "Molly" }'
+
+let birdObject = JSON.parse(birdString)
+console.log(birdObject)
+
+let unknownValue: unknown
+
+unknownValue = 'hello world'
+unknownValue = [23, 12, 4]
+unknownValue = 23
+unknownValue = 23.456
+
+if (typeof unknownValue === 'number') {
+  unknownValue.toFixed(2)
+}
+
+enum Color {
+  Red,
+  Blue,
+  // Green,
+}
+
+function getColorName(color: Color) {
+  switch (color) {
+    case Color.Red:
+      return 'Red'
+    case Color.Blue:
+      return 'Blue'
+    default:
+      // at build time
+      let unexpectedColor: never = color
+      // at runtime
+      throw new Error(`Unexpected color value: ${unexpectedColor}`)
+  }
+}
+
+console.log(getColorName(Color.Red)) // Red
+console.log(getColorName(Color.Blue)) // Blue
+// console.log(getColorName(Color.Green)); // Green
+
+// Challenge - "typeof" guard
+type ValueType = string | number | boolean
+
+function checkValue(type: ValueType): void {
+  if (typeof type === 'string') {
+    console.log(type.toLocaleLowerCase())
+    return
+  } else if (typeof type === 'number') {
+    console.log(type.toFixed(2))
+    return
+  } else {
+    console.log(`boolean: ${type}`)
+  }
+}
+
+checkValue('hello')
+checkValue(34.566)
+checkValue(true)
+
+// Challenge - Equality Narrowing
+type DogChallange = { type: 'dog'; name: string; bark: () => void }
+type CatChallange = { type: 'cat'; name: string; meow: () => void }
+type AnimalChallange = DogChallange | CatChallange
+
+// function makeSound(animal: AnimalChallange): void {
+//   if (animal.type === 'dog') {
+//     animal.bark()
+//   } else {
+//     animal.meow()
+//   }
+// }
+
+function makeSound(animal: AnimalChallange): void {
+  if ('bark' in animal) {
+    animal.bark()
+  } else {
+    animal.meow()
+  }
+}
+
+let doggy: DogChallange = {
+  type: 'dog',
+  name: 'Sparky',
+  bark: () => console.log('woof-woof'),
+}
+
+let kitty: CatChallange = {
+  type: 'cat',
+  name: 'Mr. Noris',
+  meow: () => console.log('meow-meow'),
+}
+makeSound(doggy)
+makeSound(kitty)
+
+//Challenge - "Truthy"/"Falsy" guard
+function printLength(str: string | null | undefined): void {
+  if (str) {
+    console.log(str.length)
+  } else {
+    console.log('No string provided')
+  }
+}
+
+printLength('hello')
+printLength(null)
+printLength(undefined)
+
+//Challenge - "instanceof" type guard
+function checkInput(input: Date | string): string {
+  if (input instanceof Date) {
+    return input.getFullYear().toString()
+  } else {
+    return input
+  }
+}
+
+console.log(checkInput(new Date()))
+console.log(checkInput('2020-05-05'))
+
+//Challenge - Type Predicate
+type StudentChallenge = {
+  name: string
+  study: () => void
+}
+
+type UserChallenge = {
+  name: string
+  login: () => void
+}
+
+type PersonChallenge = StudentChallenge | UserChallenge
+
+const randomPerson = (): PersonChallenge => {
+  return Math.random() > 0.5
+    ? { name: 'john', study: () => console.log('Studying') }
+    : { name: 'mary', login: () => console.log('Logging in') }
+}
+
+const personChallange = randomPerson()
+
+function isStudentChallenge(
+  person: PersonChallenge
+): person is StudentChallenge {
+  return 'study' in person
+}
+
+if (isStudentChallenge(personChallange)) {
+  personChallange.study()
+} else {
+  personChallange.login()
+}
+
+//Challenge - Discriminated Unions and exhaustive check using the never type
+type IncrementAction = {
+  type: 'increment'
+  amount: number
+  timestamp: number
+  user: string
+}
+
+type DecrementAction = {
+  type: 'decrement'
+  amount: number
+  timestamp: number
+  user: string
+}
+
+type ActionChallange = IncrementAction | DecrementAction
+
+function reducer(currentState: number, action: ActionChallange): number {
+  switch (action.type) {
+    case 'increment':
+      return currentState + action.amount
+    case 'decrement':
+      return currentState - action.amount
+    default:
+      // in case i add more options
+      const unexpectedAction: never = action
+
+      // to print that
+      throw new Error(`Unexpected action: ${unexpectedAction}`)
+  }
+}
+
+const newState = reducer(15, {
+  user: 'john',
+  type: 'increment',
+  amount: 5,
+  timestamp: 123456,
+})
+
+console.log(newState)
