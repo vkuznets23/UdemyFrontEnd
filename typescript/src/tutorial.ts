@@ -689,3 +689,46 @@ const newState = reducer(15, {
 })
 
 console.log(newState)
+
+// GENERIC FUNDAMENTALS
+// let array1: string[] = ['Apple', 'Banana', 'Mango']
+// let array1: Array<string> = ['Apple', 'Banana', 'Mango']
+// let array2: number[] = [1, 2, 3]
+// let array3: boolean[] = [true, false, true]
+
+function genericFunction<T>(arg: T): T {
+  return arg
+}
+
+console.log(genericFunction<string>('Hello'))
+console.log(genericFunction<number>(34))
+
+interface genericInterface<T> {
+  type: T
+  getValue: () => T
+}
+
+const genericString: genericInterface<string> = {
+  type: 'Hello world',
+  getValue() {
+    return this.type
+  },
+}
+
+async function someFunc(): Promise<string> {
+  return 'Hello world'
+}
+
+// function generateStringArray(length: number, value: string): string[] {
+//   let result: string[] = []
+//   result = Array(length).fill(value)
+//   return result
+// }
+function generateStringArray<T>(length: number, value: T): Array<T> {
+  let result: T[] = []
+  result = Array(length).fill(value)
+  return result
+}
+
+console.log(generateStringArray<string>(3, 'hello'))
+console.log(generateStringArray<number>(3, 42))
