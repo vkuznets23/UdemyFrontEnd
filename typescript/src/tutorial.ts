@@ -714,10 +714,12 @@ const genericString: genericInterface<string> = {
     return this.type
   },
 }
+console.log(genericString)
 
 async function someFunc(): Promise<string> {
   return 'Hello world'
 }
+console.log(someFunc())
 
 // function generateStringArray(length: number, value: string): string[] {
 //   let result: string[] = []
@@ -732,3 +734,40 @@ function generateStringArray<T>(length: number, value: T): Array<T> {
 
 console.log(generateStringArray<string>(3, 'hello'))
 console.log(generateStringArray<number>(3, 42))
+
+function genericPair<T, U>(param1: T, param2: U): [T, U] {
+  return [param1, param2]
+}
+
+console.log(genericPair<string, number>('hello', 42))
+
+// fetching data
+type Tour = {
+  id: string
+  name: string
+  info: string
+  image: string
+  price: string
+  // Add more fields as necessary.
+}
+
+const url = 'https://www.course-api.com/react-tours-project'
+
+async function fetchData(url: string): Promise<Tour[]> {
+  try {
+    const resp = await fetch(url)
+    if (!resp.ok) {
+      throw new Error(`HTTP error! status: ${resp.status}`)
+    }
+    const data: Tour[] = await resp.json()
+    console.log(data)
+
+    return data
+  } catch (err) {
+    const errMsg = err instanceof Error ? err.message : 'there was an error ...'
+    console.log(errMsg)
+    return []
+  }
+}
+
+fetchData(url)
