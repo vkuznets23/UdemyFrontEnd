@@ -1,5 +1,5 @@
 import './App.css'
-import Component from './topics/06-reducer'
+import Component from './topics/07-fetchData'
 
 function App() {
   return (
