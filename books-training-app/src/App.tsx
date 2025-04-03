@@ -38,7 +38,16 @@ function App() {
   }, [books, searchQuery])
 
   const addToFav = (newBook: Book) => {
+    if (favBooks.includes(newBook)) return
     setFavBooks([...favBooks, newBook])
+  }
+
+  const deleteFromFav = (id: number) => {
+    setFavBooks(
+      favBooks.filter((book) => {
+        return book.id !== id
+      })
+    )
   }
 
   return (
@@ -53,7 +62,12 @@ function App() {
       <Books books={filteredBooks} addToFav={addToFav} />
       {favBooks.length > 0 && <h1>Fav Books</h1>}
       {favBooks.map((favBook) => {
-        return <h2 key={favBook.id}>{favBook.title}</h2>
+        return (
+          <div key={favBook.id}>
+            <h2>{favBook.title}</h2>
+            <button onClick={() => deleteFromFav(favBook.id)}>delete</button>
+          </div>
+        )
       })}
     </>
   )
