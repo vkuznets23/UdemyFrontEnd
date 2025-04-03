@@ -5,11 +5,20 @@ import Books from './components/Book'
 import Header from './components/Header'
 import FavBooks from './components/FavBooksList'
 
+function loadFromLocalStorage() {
+  const storedFavBooks = localStorage.getItem('fav-books')
+  return storedFavBooks ? (JSON.parse(storedFavBooks) as Book[]) : []
+}
+
+function saveToLocalStorage(favBooks: Book[]) {
+  localStorage.setItem('fav-books', JSON.stringify(favBooks))
+}
+
 function App() {
   const [books, setBooks] = useState<Book[]>([])
   const [searchQuery, setSearchQuery] = useState('')
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([])
-  const [favBooks, setFavBooks] = useState<Book[]>([])
+  const [favBooks, setFavBooks] = useState<Book[]>(loadFromLocalStorage)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,7 +50,9 @@ function App() {
 
   const addToFav = (newBook: Book) => {
     if (favBooks.includes(newBook)) return
-    setFavBooks([...favBooks, newBook])
+    const updatedFavList = [...favBooks, newBook]
+    setFavBooks(updatedFavList)
+    saveToLocalStorage(updatedFavList)
   }
 
   const deleteFromFav = (id: number) => {
