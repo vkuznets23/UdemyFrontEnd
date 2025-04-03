@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { type Book } from './types'
 import Books from './components/Book'
+import Header from './components/Header'
+import FavBooks from './components/FavBooksList'
 
 function App() {
   const [books, setBooks] = useState<Book[]>([])
@@ -52,7 +54,7 @@ function App() {
 
   return (
     <>
-      <h1> Book</h1>
+      <Header header="Books" />
       <input
         type="search"
         placeholder="book search"
@@ -60,15 +62,8 @@ function App() {
         onChange={(e) => setSearchQuery(e.target.value)}
       />
       <Books books={filteredBooks} addToFav={addToFav} />
-      {favBooks.length > 0 && <h1>Fav Books</h1>}
-      {favBooks.map((favBook) => {
-        return (
-          <div key={favBook.id}>
-            <h2>{favBook.title}</h2>
-            <button onClick={() => deleteFromFav(favBook.id)}>delete</button>
-          </div>
-        )
-      })}
+      {favBooks.length > 0 && <Header header="Fav Books" />}
+      <FavBooks favBooks={favBooks} deleteFromFav={deleteFromFav} />
     </>
   )
 }
